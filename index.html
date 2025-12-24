@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merry Christmas Bé Iu 💕</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        overflow-x: hidden;
+        font-family: 'Mountains of Christmas', cursive;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      /* Snow Animation */
+      .snow-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        text-shadow: 0 0 5px #fff;
+        animation: fall linear infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      /* Main Content */
+      .christmas-content {
+        text-align: center;
+        z-index: 10;
+        padding: 20px;
+      }
+
+      .christmas-title {
+        font-size: 2.5rem;
+        color: #ffd700;
+        text-shadow: 
+          0 0 10px #ff6b6b,
+          0 0 20px #ff6b6b,
+          0 0 30px #ff6b6b,
+          0 0 40px #ff0000;
+        margin-bottom: 10px;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      .love-message {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        color: #ff69b4;
+        text-shadow: 
+          0 0 10px #ff69b4,
+          0 0 20px #ff1493,
+          0 0 30px #ff1493;
+        margin-top: 20px;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 
+            0 0 10px #ff6b6b,
+            0 0 20px #ff6b6b,
+            0 0 30px #ff6b6b;
+        }
+        to {
+          text-shadow: 
+            0 0 20px #ffd700,
+            0 0 30px #ffd700,
+            0 0 40px #ffd700,
+            0 0 50px #ff0000;
+        }
+      }
+
+      @keyframes heartbeat {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* Christmas Tree */
+      .christmas-tree {
+        position: relative;
+        margin: 30px auto;
+      }
+
+      .tree {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .star-top {
+        font-size: 3rem;
+        animation: twinkle 1s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px gold);
+      }
+
+      @keyframes twinkle {
+        0%, 100% {
+          transform: scale(1) rotate(0deg);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2) rotate(10deg);
+          opacity: 0.8;
+        }
+      }
+
+      .tree-layer {
+        width: 0;
+        height: 0;
+        border-left: solid transparent;
+        border-right: solid transparent;
+        border-bottom: solid #228b22;
+        position: relative;
+        filter: drop-shadow(0 5px 15px rgba(34, 139, 34, 0.5));
+      }
+
+      .tree-layer:nth-child(2) {
+        border-left-width: 60px;
+        border-right-width: 60px;
+        border-bottom-width: 80px;
+      }
+
+      .tree-layer:nth-child(3) {
+        border-left-width: 80px;
+        border-right-width: 80px;
+        border-bottom-width: 100px;
+        margin-top: -20px;
+      }
+
+      .tree-layer:nth-child(4) {
+        border-left-width: 100px;
+        border-right-width: 100px;
+        border-bottom-width: 120px;
+        margin-top: -20px;
+      }
+
+      .tree-trunk {
+        width: 40px;
+        height: 50px;
+        background: linear-gradient(90deg, #8b4513, #a0522d, #8b4513);
+        margin-top: -5px;
+        border-radius: 0 0 5px 5px;
+      }
+
+      /* Ornaments */
+      .ornament {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        animation: swing 2s ease-in-out infinite;
+      }
+
+      @keyframes swing {
+        0%, 100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      .ornament.red { background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc0000); }
+      .ornament.gold { background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b); }
+      .ornament.blue { background: radial-gradient(circle at 30% 30%, #87ceeb, #4169e1); }
+      .ornament.pink { background: radial-gradient(circle at 30% 30%, #ffb6c1, #ff69b4); }
+
+      /* Lights */
+      .lights-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .light {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        animation: blink 1s ease-in-out infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+          box-shadow: 0 0 10px currentColor;
+        }
+        50% {
+          opacity: 0.5;
+          box-shadow: 0 0 5px currentColor;
+        }
+      }
+
+      /* Hearts floating */
+      .hearts-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .heart {
+        position: absolute;
+        font-size: 1.5rem;
+        animation: floatHeart 6s ease-in-out infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes floatHeart {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.7;
+        }
+        90% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-20vh) scale(1);
+          opacity: 0;
+        }
+      }
+
+      /* Gift boxes */
+      .gifts {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .gift {
+        font-size: 2.5rem;
+        animation: bounce 1s ease-in-out infinite;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .gift:hover {
+        transform: scale(1.3);
+      }
+
+      .gift:nth-child(1) { animation-delay: 0s; }
+      .gift:nth-child(2) { animation-delay: 0.2s; }
+      .gift:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Music toggle */
+      .music-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        transition: all 0.3s;
+      }
+
+      .music-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      /* Santa */
+      .santa-container {
+        position: fixed;
+        top: 10%;
+        animation: flySanta 15s linear infinite;
+        z-index: 100;
+      }
+
+      .santa {
+        width: 120px;
+        height: auto;
+        filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+      }
+
+      @keyframes flySanta {
+        0% {
+          left: -150px;
+          top: 10%;
+        }
+        50% {
+          top: 15%;
+        }
+        100% {
+          left: 110%;
+          top: 10%;
+        }
+      }
+
+      /* Clouds */
+      .clouds {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        pointer-events: none;
+        z-index: 50;
+      }
+
+      .cloud {
+        position: absolute;
+        width: 150px;
+        opacity: 0.6;
+        animation: drift linear infinite;
+      }
+
+      .cloud:nth-child(1) {
+        top: 5%;
+        animation-duration: 25s;
+      }
+
+      .cloud:nth-child(2) {
+        top: 15%;
+        animation-duration: 30s;
+        animation-delay: -10s;
+      }
+
+      .cloud:nth-child(3) {
+        top: 8%;
+        animation-duration: 20s;
+        animation-delay: -5s;
+      }
+
+      @keyframes drift {
+        0% {
+          left: -200px;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .christmas-title {
+          font-size: 1.5rem;
+        }
+        .love-message {
+          font-size: 2rem;
+        }
+        .santa {
+          width: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="snow-container" id="snowContainer"></div>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <div class="clouds">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+    </div>
+
+    <div class="santa-container">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/santa.png?alt=media&token=a81ad9d6-4f75-498e-9ba4-3e28673c942f"
+        class="santa"
+        alt="Santa"
+      />
+    </div>
+
+    <div class="christmas-content">
+      <h1 class="christmas-title">🎄 Có vẻ hơi muộn nhưng mà Merry Christmas bé iu nhá 🎄</h1>
+      
+      <div class="christmas-tree">
+        <div class="tree">
+          <div class="star-top">⭐</div>
+          <div class="tree-layer"></div>
+          <div class="tree-layer"></div>
+          <div class="tree-layer"></div>
+          <div class="tree-trunk"></div>
+        </div>
+      </div>
+
+      <p class="love-message">💕 I love uuuu 💕</p>
+
+      <div class="gifts">
+        <span class="gift">🎁</span>
+        <span class="gift">🎀</span>
+        <span class="gift">🎁</span>
+      </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source
+        src="https://storage.googleapis.com/webai-54992.appspot.com/WeWishYouAMerryChristmas.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+    <button class="music-toggle" id="musicBtn">🔇</button>
+
+    <script>
+      // Snow Effect
+      function createSnowflake() {
+        const snowContainer = document.getElementById('snowContainer');
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = ['❄', '❅', '❆', '✧', '✦'][Math.floor(Math.random() * 5)];
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+        snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        snowContainer.appendChild(snowflake);
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, 8000);
+      }
+
+      setInterval(createSnowflake, 100);
+
+      // Hearts Effect
+      function createHeart() {
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = ['💕', '💖', '💗', '💝', '❤️'][Math.floor(Math.random() * 5)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+
+      setInterval(createHeart, 800);
+
+      // Music Toggle
+      const musicBtn = document.getElementById('musicBtn');
+      const bgMusic = document.getElementById('bgMusic');
+      let isPlaying = false;
+
+      musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicBtn.innerHTML = '🔇';
+        } else {
+          bgMusic.play();
+          musicBtn.innerHTML = '🔊';
+        }
+        isPlaying = !isPlaying;
+      });
+
+      // Add ornaments to tree
+      function addOrnaments() {
+        const colors = ['red', 'gold', 'blue', 'pink'];
+        const tree = document.querySelector('.tree');
+        
+        for (let i = 0; i < 12; i++) {
+          const ornament = document.createElement('div');
+          ornament.classList.add('ornament', colors[i % colors.length]);
+          ornament.style.top = (80 + Math.random() * 150) + 'px';
+          ornament.style.left = (80 + Math.random() * 80 - 40) + 'px';
+          ornament.style.animationDelay = (Math.random() * 2) + 's';
+          tree.appendChild(ornament);
+        }
+      }
+
+      addOrnaments();
+
+      // Gift click effect
+      document.querySelectorAll('.gift').forEach(gift => {
+        gift.addEventListener('click', () => {
+          for (let i = 0; i < 10; i++) {
+            createHeart();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
